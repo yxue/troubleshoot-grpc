@@ -18,7 +18,18 @@ spec:
       serviceAccountName: apiserver
       containers:
       - name: echo-server
-        image: docker.io/yanxue/echo_server
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 6666
+        image: docker.io/yanxue/http2-server
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: echo
+spec:
+  ports:
+    - port: 443
+      protocol: TCP
+      targetPort: 8000
+  selector:
+    apiserver: "true"

@@ -1,6 +1,5 @@
-FROM ubuntu
-ADD echo_server /
+FROM ubuntu:16.04
+COPY echo_server /echo_server
+CMD ["/echo_server"]
 
-RUN chmod +x /echo_server
-
-ENTRYPOINT ["/echo_server"]
+EXPOSE 6666
