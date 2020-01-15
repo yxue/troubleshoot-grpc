@@ -14,7 +14,8 @@ func main() {
 	// run with TLS.
 	// Exactly how you would run an HTTP/1.1 server with TLS connection.
 	log.Printf("Serving on https://0.0.0.0:8000")
-	log.Fatal(srv.ListenAndServeTLS("server.crt", "server.key"))
+	//log.Fatal(srv.ListenAndServeTLS("server.crt", "server.key"))
+	log.Fatal(srv.ListenAndServe())
 }
 
 func handle(w http.ResponseWriter, r *http.Request) {
